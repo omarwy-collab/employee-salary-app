@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الموظفين</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Tahoma, sans-serif;
+            background: #f2f5f8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 420px;
+            background: white;
+            padding: 30px 25px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.10);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 8px;
+            font-size: 25px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 18px;
+            color: #d00;
+            min-height: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">👤</div>
+
+    <h1>خدمات الموظفين</h1>
+
+    <div class="subtitle">
+        الاستعلام عن بيانات المرتب
+    </div>
+
+    <label for="empNo">رقم الموظف</label>
+
+    <input
+        type="text"
+        id="empNo"
+        placeholder="أدخل رقم الموظف"
+        inputmode="numeric"
+    >
+
+    <button onclick="login()">
+        دخول
+    </button>
+
+    <div id="message"></div>
+
+    <div class="footer">
+        نظام خدمات الموظفين
+    </div>
+
+</div>
+
+<script>
+
+function login() {
+
+    const empNo = document.getElementById("empNo").value.trim();
+    const message = document.getElementById("message");
+
+    if (empNo === "") {
+        message.innerText = "من فضلك أدخل رقم الموظف";
+        return;
+    }
+
+    message.style.color = "green";
+    message.innerText = "جاري التحقق...";
+
+    /*
+       سنربط هذه الصفحة بقاعدة بيانات Supabase
+       في الخطوة التالية.
+    */
+
+    setTimeout(function() {
+        message.innerText = "تم إدخال رقم الموظف: " + empNo;
+    }, 500);
+}
+
+</script>
+
+</body>
+</html>
